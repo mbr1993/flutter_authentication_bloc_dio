@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                         controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          prefixIcon: const Icon(EvaIcons.emailOutline, color: Colors.black26),
+                          prefixIcon: const Icon(Icons.email_outlined, color: Colors.black26),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black12),
                             borderRadius: BorderRadius.circular(30.0),
@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                         controller: _passwordController,
                         decoration: InputDecoration(
                           fillColor: Colors.white,
-                          prefixIcon: const Icon(EvaIcons.lockOutline, color: Colors.black26),
+                          prefixIcon: const Icon(Icons.lock_outline, color: Colors.black26),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: Colors.black12),
                             borderRadius: BorderRadius.circular(30.0),

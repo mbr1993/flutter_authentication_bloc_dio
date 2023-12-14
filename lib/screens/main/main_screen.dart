@@ -1,4 +1,3 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,21 +13,19 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
+    const String networkImage =
+        "https://yt3.ggpht.com/yti/ANoDKi5R5eJSjZigdWmIcZKFAtqwG4svMcAAN0Iyvw4j=s108-c-k-c0x00ffffff-no-rj";
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.purpleAccent,
         leading: const Padding(
           padding: EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-              "https://yt3.ggpht.com/yti/ANoDKi5R5eJSjZigdWmIcZKFAtqwG4svMcAAN0Iyvw4j=s108-c-k-c0x00ffffff-no-rj",
-            ),
-          ),
+          child: CircleAvatar(backgroundImage: NetworkImage(networkImage)),
         ),
         title: const Text('Auth with Rest'),
         actions: [
           IconButton(
-            icon: const Icon(EvaIcons.logOutOutline),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               BlocProvider.of<AuthBloc>(context).add(LoggedOut());
             },
