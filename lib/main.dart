@@ -25,59 +25,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      locale: const Locale('id', 'ID'),
-      theme: ThemeData(fontFamily: 'Rubik', primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
       home: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
-          if (state is AuthAuthenticated) {
-            return const MainScreen();
-          } else if (state is AuthUnauthenticated) {
-            return LoginScreen(userRepository: userRepository);
-          }
-          if (state is AuthLoading) {
-            return Scaffold(
-              body: Container(
-                color: Colors.white,
-                width: MediaQuery.of(context).size.width,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 25.0,
-                      width: 25.0,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.purpleAccent),
-                        strokeWidth: 4.0,
-                      ),
-                    )
-                  ],
+          switch (state) {
+            case AuthAuthenticated():
+              return const MainScreen();
+            case AuthUnauthenticated():
+              return LoginScreen(userRepository: userRepository);
+            default:
+              return Scaffold(
+                body: Container(
+                  color: Colors.white,
+                  width: MediaQuery.of(context).size.width,
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(
+                        height: 25.0,
+                        width: 25.0,
+                        child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(Colors.purpleAccent), strokeWidth: 4.0),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            );
+              );
           }
-          return Scaffold(
-            body: Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    height: 25.0,
-                    width: 25.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.purpleAccent),
-                      strokeWidth: 4.0,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          );
         },
       ),
     );
