@@ -42,58 +42,44 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             Text(
                               "AUTH WITH REST",
-                              style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold, fontSize: 24.0),
+                              style: TextStyle(color: Colors.deepPurple, fontWeight: FontWeight.bold, fontSize: 24.0),
                             ),
-                            SizedBox(
-                              height: 5.0,
-                            ),
+                            SizedBox(height: 5.0),
                             Text(
                               "Login app using BLOC pattern and REST API",
                               style: TextStyle(fontSize: 10.0, color: Colors.black38),
-                            )
+                            ),
                           ],
                         ),
                       ),
                       const SizedBox(height: 30),
                       TextFormField(
-                        style: const TextStyle(fontSize: 14.0, color: Colors.blueAccent, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 14.0, color: Colors.deepPurple),
                         controller: _emailController,
                         keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          prefixIcon: const Icon(Icons.email_outlined, color: Colors.black26),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black12),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.purpleAccent),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.email_outlined, color: Colors.black26),
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black12)),
+                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.deepPurpleAccent)),
+                          contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
                           labelText: "E-Mail",
-                          hintStyle: const TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
-                          labelStyle: const TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
+                          hintStyle: TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
+                          labelStyle: TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
                         ),
                         autocorrect: false,
                       ),
                       const SizedBox(height: 20.0),
                       TextFormField(
-                        style: const TextStyle(fontSize: 14.0, color: Colors.blueAccent, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 14.0, color: Colors.deepPurple),
                         controller: _passwordController,
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          prefixIcon: const Icon(Icons.lock_outline, color: Colors.black26),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(color: Colors.black12),
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(30.0)),
-                          contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(Icons.lock_outline, color: Colors.black26),
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black12)),
+                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.deepPurpleAccent)),
+                          contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
                           labelText: "Password",
-                          hintStyle: const TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
-                          labelStyle: const TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
+                          hintStyle: TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
+                          labelStyle: TextStyle(fontSize: 12.0, color: Colors.grey, fontWeight: FontWeight.w500),
                         ),
                         autocorrect: false,
                         obscureText: true,
@@ -115,24 +101,7 @@ class LoginScreen extends StatelessWidget {
                             SizedBox(
                               height: 45,
                               child: state is LoginLoading
-                                  ? const Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Center(
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                              SizedBox(
-                                                width: 25,
-                                                height: 25,
-                                                child: CupertinoActivityIndicator(),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    )
+                                  ? const CupertinoActivityIndicator()
                                   : ElevatedButton(
                                       onPressed: () {
                                         BlocProvider.of<LoginBloc>(context).add(
@@ -142,18 +111,8 @@ class LoginScreen extends StatelessWidget {
                                           ),
                                         );
                                       },
-                                      style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.purpleAccent,
-                                          disabledBackgroundColor: Colors.purpleAccent,
-                                          disabledForegroundColor: Colors.white,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(30.0),
-                                          )),
-                                      child: const Text(
-                                        'Login',
-                                        style:
-                                            TextStyle(color: Colors.white, fontSize: 12.0, fontWeight: FontWeight.bold),
-                                      ),
+                                      style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurpleAccent),
+                                      child: const Text('Login', style: TextStyle(color: Colors.white)),
                                     ),
                             ),
                           ],
