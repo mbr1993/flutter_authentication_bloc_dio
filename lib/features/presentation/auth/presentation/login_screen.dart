@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_authentication_bloc/repository/repositories.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/auth_bloc/auth_bloc.dart';
-import '../../bloc/login_bloc/login_bloc.dart';
+import '../business/bloc/auth_bloc/auth_bloc.dart';
+import '../business/bloc/login_bloc/login_bloc.dart';
+import '../data/repository/repositories.dart';
 
 class LoginScreen extends StatelessWidget {
   final UserRepository userRepository;

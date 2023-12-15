@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_authentication_bloc/bloc/auth_bloc/auth_bloc.dart';
-import 'package:flutter_authentication_bloc/repository/repositories.dart';
-import 'package:flutter_authentication_bloc/screens/auth/login_screen.dart';
-import 'package:flutter_authentication_bloc/screens/main/main_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'features/presentation/auth/business/bloc/auth_bloc/auth_bloc.dart';
+import 'features/presentation/auth/data/repository/repositories.dart';
+import 'features/presentation/auth/presentation/login_screen.dart';
+import 'features/presentation/main/main_screen.dart';
 
 void main() {
   final userRepository = UserRepository();
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
           switch (state) {
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
                         height: 25.0,
                         width: 25.0,
                         child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(Colors.purpleAccent), strokeWidth: 4.0),
+                            valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurpleAccent), strokeWidth: 4.0),
                       )
                     ],
                   ),
